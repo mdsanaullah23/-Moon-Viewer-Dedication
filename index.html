@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #666;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #moonImage {
+            max-width: 100%;
+            max-height: 50%;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Moon in different Quality Precision</h1>
+    <form id="moonForm">
+        <label for="moon">Choose the quality precision:</label>
+        <select name="moon" id="moon">
+            <option value="m144">144p</option>
+            <option value="m240">240p</option>
+            <option value="m360">360p</option>
+            <option value="m480">480p</option>
+            <option value="m720">720p</option>
+            <option value="m1080">1080p</option>
+            <option value="m4k">4K</option>
+        </select>
+        <br><br>
+        <input type="button" value="Submit" onclick="showMoon(event)">
+    </form>
+
+    <p>Click the Submit button and see the Moon in different Quality Precision</p>
+
+    <img src="" alt="Moon Image" id="moonImage">
+
+    <script>
+        function showMoon(event) {
+            event.preventDefault(); // Prevent default form submission
+            var moonSelect = document.getElementById("moon");
+            var selectedValue = moonSelect.value;
+            var moonImage = document.getElementById("moonImage");
+            var imageUrl = "";
+
+            switch(selectedValue) {
+                case "m144":
+                    imageUrl = "moon_144p.jpg";
+                    break;
+                case "m240":
+                    imageUrl = "moon_240p.jpg";
+                    break;
+                case "m360":
+                    imageUrl = "moon_360p.jpg";
+                    break;
+                case "m480":
+                    imageUrl = "moon_480p.jpg";
+                    break;
+                case "m720":
+                    imageUrl = "moon_720p.jpg";
+                    break;
+                case "m1080":
+                    imageUrl = "moon_1080p.jpg";
+                    break;
+                case "m4k":
+                    imageUrl = "moon_4k.jpg";
+                    break;
+                default:
+                    imageUrl = "moon_default.jpg";
+                    break;
+            }
+
+            moonImage.src = imageUrl;
+        }
+    </script>
+</body>
+</html>
